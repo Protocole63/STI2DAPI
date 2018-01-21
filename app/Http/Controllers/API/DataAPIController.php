@@ -126,4 +126,16 @@ class DataAPIController extends AppBaseController
 
         return $this->sendResponse($id, 'Data deleted successfully');
     }
+
+    public function GetData($data_id)
+    {
+        $Data = Data::where('id', '=', $data_id)->with('heat', 'acid', 'food')->get();
+
+        if (empty($Data)) {
+            return $this->sendError('data not found');
+        }
+
+        return $this->sendResponse($Data->toArray(), 'Get Data based on DataId');
+    }
+
 }

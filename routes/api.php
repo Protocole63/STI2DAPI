@@ -25,3 +25,7 @@ Route::resource('heats', 'HeatAPIController');
 Route::resource('foods', 'FoodAPIController');
 
 Route::resource('acids', 'AcidAPIController');
+
+
+Route::get('GetDatas/{howmany}', 'DataAPIController@GetDatas');
+Route::get('GetData/{data_id}', 'DataAPIController@GetData');

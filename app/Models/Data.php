@@ -20,7 +20,7 @@ class Data extends Model
     protected $dates = ['deleted_at'];
 
 
-    public $fillable = [
+    public $fillable = [ 
         
     ];
 
@@ -41,6 +41,18 @@ class Data extends Model
     public static $rules = [
         
     ];
+
+    public function heat() {
+        return $this->hasOne('App\Models\Heat', 'data_id', 'id');
+    }
+
+    public function food() {
+        return $this->hasOne('App\Models\Food', 'data_id', 'id');
+    }
+
+    public function acid() {
+        return $this->hasOne('App\Models\Acid', 'data_id', 'id');
+    }
 
     
 }
