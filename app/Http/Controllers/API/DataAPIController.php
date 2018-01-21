@@ -141,4 +141,11 @@ class DataAPIController extends AppBaseController
         return $this->sendResponse($Data->toArray(), 'Get Data based on DataId');
     }
 
+
+    public function getDatas($howmany, Request $request)
+    {
+
+        $data = Data::with('heat', 'acid', 'food')->orderBy('id', 'DESC')->limit($howmany)->get();
+        return $this->sendResponse($data->toArray(), 'Data retrieved successfullys');
+    }
 }
