@@ -27,5 +27,6 @@ Route::resource('foods', 'FoodAPIController');
 Route::resource('acids', 'AcidAPIController');
 
 
-Route::get('GetDatas/{howmany}', 'DataAPIController@GetDatas');
-Route::get('GetData/{data_id}', 'DataAPIController@GetData');
+Route::get('Data/GetAll/{howmany}', 'DataAPIController@GetDatas');
+Route::get('Data/GetOne/{data_id}', 'DataAPIController@GetData');
+Route::post('Data', 'DataAPIController@NewData');
